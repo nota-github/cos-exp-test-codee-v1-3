@@ -1,34 +1,30 @@
+import { createHeaderDateDisplay } from '../features/header/dateDisplay';
+
 const moodLabels = ['맑음', '차분함', '지침'];
 const todoExamples = ['발표 자료 마무리', '운동 20분', '답장 보낼 메일 정리'];
 
 export function createApp(root: HTMLElement): void {
+  const headerDateDisplay = createHeaderDateDisplay();
+
   root.innerHTML = `
     <main class="page-shell">
       <header class="page-header" aria-labelledby="app-title">
-        <p class="page-header__eyebrow">Single Screen Check-In</p>
+        <div class="page-header__topline">
+          ${headerDateDisplay}
+          <p class="page-header__hint">현재 기기 기준 오늘 날짜와 체크인 내용을 한 화면에서 확인하는 로컬 대시보드</p>
+        </div>
         <div class="page-header__content">
           <div>
+            <p class="page-header__eyebrow">Single Screen Check-In</p>
             <h1 id="app-title">오늘의 미니 체크인</h1>
             <p class="page-header__description">
               오늘의 기분, 꼭 할 일 세 가지, 짧은 메모를 한 화면 안에서 정리하는 가벼운 대시보드입니다.
             </p>
           </div>
-          <p class="page-header__hint">백엔드 없이 바로 실행되는 브라우저 전용 앱 셸</p>
         </div>
       </header>
 
       <section class="dashboard-grid" aria-label="오늘의 미니 체크인 섹션">
-        <section class="panel panel--date" aria-labelledby="date-title">
-          <div class="panel__header">
-            <p class="panel__eyebrow">Date</p>
-            <h2 id="date-title">오늘 날짜</h2>
-          </div>
-          <p class="date-card__value">기기 기준 오늘 날짜가 이 위치에 표시됩니다.</p>
-          <p class="panel__support">
-            날짜 formatter 연결은 다음 스토리에서 이어지며, 현재는 레이아웃과 시각 위계를 먼저 고정합니다.
-          </p>
-        </section>
-
         <section class="panel panel--mood" aria-labelledby="mood-title">
           <div class="panel__header">
             <p class="panel__eyebrow">Mood</p>

@@ -8,7 +8,8 @@
     "typecheck": "tsc --noEmit",
     "build": "vite build",
     "preview": "vite preview",
-    "validate:story-1.1": "node ./scripts/validate-story-1.1.mjs"
+    "validate:story-1.1": "node ./scripts/validate-story-1.1.mjs",
+    "validate:story-1.2": "node ./scripts/validate-story-1.2.mjs"
   },
   "devDependencies": {
     "typescript": "^5.8.3",
