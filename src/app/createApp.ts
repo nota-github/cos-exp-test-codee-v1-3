@@ -1,7 +1,6 @@
 import { createHeaderDateDisplay } from '../features/header/dateDisplay';
 import { createMoodSelector } from '../features/mood/moodSelector';
-
-const todoExamples = ['발표 자료 마무리', '운동 20분', '답장 보낼 메일 정리'];
+import { createTodoSlots } from '../features/todos/todoSlots';
 
 export function createApp(root: HTMLElement): void {
   const headerDateDisplay = createHeaderDateDisplay();
@@ -39,24 +38,7 @@ export function createApp(root: HTMLElement): void {
             <p class="panel__eyebrow">Top 3</p>
             <h2 id="todo-title">할 일 세 가지</h2>
           </div>
-          <ul class="todo-list" aria-label="오늘의 할 일 입력 프레임">
-            ${todoExamples
-              .map(
-                (item, index) => `
-                  <li class="todo-row">
-                    <label class="todo-row__checkbox">
-                      <span class="sr-only">할 일 ${index + 1} 체크</span>
-                      <input type="checkbox" />
-                    </label>
-                    <label class="todo-row__field">
-                      <span class="sr-only">할 일 ${index + 1}</span>
-                      <input type="text" placeholder="${item}" />
-                    </label>
-                  </li>
-                `,
-              )
-              .join('')}
-          </ul>
+          ${createTodoSlots('todo-title')}
           <p class="panel__support">정확히 세 개의 입력 행을 고정 노출해 한눈에 훑을 수 있는 밀도를 유지합니다.</p>
         </section>
 
