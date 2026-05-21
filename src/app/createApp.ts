@@ -1,4 +1,5 @@
 import { createHeaderDateDisplay } from '../features/header/dateDisplay';
+import { createMemoField } from '../features/memo/memoField';
 import { createMoodSelector } from '../features/mood/moodSelector';
 import { createTodoSlots } from '../features/todos/todoSlots';
 
@@ -47,11 +48,8 @@ export function createApp(root: HTMLElement): void {
             <p class="panel__eyebrow">Note</p>
             <h2 id="memo-title">짧은 메모</h2>
           </div>
-          <label class="memo-field">
-            <span class="sr-only">짧은 메모 입력</span>
-            <textarea rows="7" placeholder="오늘 남기고 싶은 한 줄이나 집중 포인트를 적어보세요."></textarea>
-          </label>
-          <p class="panel__support">메모는 할 일과 분리된 카드에서 관리해 화면 위계를 단순하게 유지합니다.</p>
+          ${createMemoField('memo-title')}
+          <p class="panel__support">메모는 할 일과 분리된 카드에서 관리해 짧은 생각도 같은 화면 안에서 바로 이어 적을 수 있습니다.</p>
         </section>
       </section>
     </main>

@@ -337,8 +337,7 @@ textarea {
   min-width: 0;
 }
 
-.todo-row__field input,
-.memo-field textarea {
+.todo-row__field input {
   width: 100%;
   border-radius: var(--radius-control);
   padding: 0.95rem 1rem;
@@ -349,13 +348,46 @@ textarea {
   min-height: 3.35rem;
 }
 
-.memo-field textarea {
-  min-height: 10rem;
+.todo-row__field input::placeholder,
+.memo-field__input::placeholder {
+  color: #8b998f;
 }
 
-.todo-row__field input::placeholder,
-.memo-field textarea::placeholder {
-  color: #8b998f;
+.panel--memo {
+  border-color: rgba(96, 123, 105, 0.22);
+  background:
+    linear-gradient(180deg, rgba(255, 253, 249, 0.96), rgba(244, 248, 240, 0.92)),
+    var(--surface);
+}
+
+.memo-field {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.memo-field__label {
+  font-size: 0.98rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+.memo-field__hint {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 0.92rem;
+  line-height: 1.55;
+}
+
+.memo-field__input {
+  width: 100%;
+  min-height: 11rem;
+  padding: 1rem 1rem 1.1rem;
+  border-radius: var(--radius-control);
+  background: rgba(255, 255, 255, 0.98);
+  line-height: 1.6;
+  box-shadow:
+    0 10px 24px rgba(34, 45, 38, 0.04),
+    inset 0 1px 0 rgba(255, 255, 255, 0.92);
 }
 
 .sr-only {
@@ -423,6 +455,11 @@ textarea {
 
   .todo-row__checkbox {
     min-height: 3.4rem;
+  }
+
+  .memo-field__input {
+    min-height: 9.5rem;
+    padding: 0.95rem;
   }
 }
 
