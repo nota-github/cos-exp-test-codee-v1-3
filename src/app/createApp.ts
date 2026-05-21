@@ -1,6 +1,6 @@
 import { createHeaderDateDisplay } from '../features/header/dateDisplay';
+import { createMoodSelector } from '../features/mood/moodSelector';
 
-const moodLabels = ['맑음', '차분함', '지침'];
 const todoExamples = ['발표 자료 마무리', '운동 20분', '답장 보낼 메일 정리'];
 
 export function createApp(root: HTMLElement): void {
@@ -30,18 +30,8 @@ export function createApp(root: HTMLElement): void {
             <p class="panel__eyebrow">Mood</p>
             <h2 id="mood-title">오늘의 기분</h2>
           </div>
-          <div class="mood-options" role="group" aria-label="기분 선택 미리보기">
-            ${moodLabels
-              .map(
-                (label) => `
-                  <button class="mood-option" type="button" aria-pressed="false">
-                    ${label}
-                  </button>
-                `,
-              )
-              .join('')}
-          </div>
-          <p class="panel__support">세 가지 선택지는 항상 동시에 보이며, 선택 상태 로직은 다음 스토리에서 연결됩니다.</p>
+          ${createMoodSelector('mood-title')}
+          <p class="panel__support">세 가지 선택지는 항상 동시에 보이며, 한 번에 하나의 기분만 선택할 수 있습니다.</p>
         </section>
 
         <section class="panel panel--todo" aria-labelledby="todo-title">
